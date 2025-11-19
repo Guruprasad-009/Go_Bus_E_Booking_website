@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoBus</title>
+    <link rel="stylesheet" href="./Go_Bus.css" />
+    <script src="https://kit.fontawesome.com/9aca14c5c9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo-flex">
+                <img src="./gobus logo.png" alt="GoBus Logo" class="logo-img" />
+                <span class="logo-text">Go<span>Bus</span></span>
+            </a>
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#offers"><i class="fa-solid fa-tags"></i> Offers</a></li>
+                <li><a href="#help"><i class="fa-solid fa-headset"></i> Help</a></li>
+                <li>
+                    <a href="./login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a> /
+                    <a href="./signup.html"><i class="fa-solid fa-user-plus"></i> Signup</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="./home section video 1.mp4.mp4" type="video/mp4" /></video>
+
+        <div class="hero-content">
+            <h1>GoBus - Book Smart. Travel Easy.</h1>
+            <div class="search-box">
+
+                <div class="input-group">
+                    <input type="text" id="fromCity" placeholder="From City"
+                        oninput="showSuggestions('fromCity', 'fromSuggestions')" />
+                    <div id="fromSuggestions" class="suggestions-box"></div>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="toCity" placeholder="To City"
+                        oninput="showSuggestions('toCity', 'toSuggestions')"/>
+                    <div id="toSuggestions" class="suggestions-box"></div>
+                </div>
+
+                <input type="date" id="journeyDate" />
+
+                <select id="busType">
+                    <option value="">All Bus Types</option>
+                    <option value="AC">AC</option>
+                    <option value="non-ac">Non-AC</option>
+                    <option value="sleeper">Sleeper</option>
+                    <option value="semi-sleeper">Semi-Sleeper</option>
+                </select>
+                <button onclick="SearchBus()">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-section">
+        <div class="why-choose-content">
+            <h2>Why Choose <span>GoBus</span>?</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>Instant Booking</h3>
+                    <p>Book your bus ticket instantly with real-time availability.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-bus"></i>
+                    <h3>Wide Network</h3>
+                    <p>We cover 70+ cities and 2000+ routes across India.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <h3>Safe & Secure</h3>
+                    <p>Verified buses with tracking, CCTV, and emergency support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="help" class="help-section">
+        <h2>Need Help? 🤝</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <h4>How do I book a ticket?</h4>
+                <p>You can search buses, select your seat, and make payment securely online through GoBus.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I cancel my ticket?</h4>
+                <p>Yes! You can cancel anytime before departure. Refund will be processed to your payment method.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Whom should I contact for support?</h4>
+                <p>Contact our 24x7 support team via email at <strong>support@gobus.in</strong> or call us at<strong>1800-123-4567</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="popular-routes">
+        <h2>Popular <span>Routes</span></h2>
+        <div class="route-cards">
+            <div class="route-card">
+                <i class="fa-solid fa-route"></i>
+                <h3>Kolhapur → Pune</h3>
+                <p>15+ buses daily</p>
+            </div>
+            <div class="route-card">
+                <i class="fa-solid fa-route"></i> 
+                <h3>Kolhapur → Mumbai</h3>
+                <p>20+ options available</p>
+            </div>
+            <div class="route-card">
+                <i class="fa-solid fa-route"></i>
+                <h3>Pune → Goa</h3>
+                <p>AC / Non-AC buses</p>
+            </div>
+            <div class="route-card">
+                <i class="fa-solid fa-route"></i>
+                <h3>Dilhi → Gujrat</h3>
+                <p>Luxury & Budget buses</p>
+            </div>
+            <div class="route-card">
+                <i class="fa-solid fa-route"></i>
+                <h3>Pune → Mumbai</h3>
+                <p>Every hour departures</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="offers-carousel" id="offers">
+        <h2>Today's <span>Top Offers</span></h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                
+                <div class="offer-card">
+                    <i class="fa-solid fa-tag"></i>
+                    <h3>Flat 20% OFF</h3>
+                    <p>Use code <strong>FIRST20</strong> on your first booking</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>Instant Cashback</h3>
+                    <p>Get ₹100 back on UPI payments</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-wallet"></i>
+                    <h3>Wallet Offer</h3>
+                    <p>Recharge your wallet & get ₹50 extra</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-ticket"></i>
+                    <h3>Weekend Deal</h3>
+                    <p>10% off on bookings for Sat/Sun</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-gift"></i>
+                    <h3>First Ride Free</h3>
+                    <p>New users get their first bus ticket absolutely free*</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3>Student Special</h3>
+                    <p>Students get 15% off with valid ID</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <h3>Refer & Earn</h3>
+                    <p>Refer friends & earn ₹50 per sign-up</p>
+                </div>
+
+                <div class="offer-card">
+                    <i class="fa-solid fa-tag"></i>
+                    <h3>Flat 20% OFF</h3>
+                    <p>Use code <strong>FIRST20</strong> on your first booking</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>Instant Cashback</h3>
+                    <p>Get ₹100 back on UPI payments</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-wallet"></i>
+                    <h3>Wallet Offer</h3>
+                    <p>Recharge your wallet & get ₹50 extra</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-ticket"></i>
+                    <h3>Weekend Deal</h3>
+                    <p>10% off on bookings for Sat/Sun</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-gift"></i>
+                    <h3>First Ride Free</h3>
+                    <p>New users get their first bus ticket absolutely free*</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3>Student Special</h3>
+                    <p>Students get 15% off with valid ID</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <h3>Refer & Earn</h3>
+                    <p>Refer friends & earn ₹50 per sign-up</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="reviews-section">
+        <h2>What Our <span>Customers Say</span></h2>
+        <div class="review-cards">
+            <div class="review-card">
+                <img src="./user2.png" alt="User 1">
+                <h3>Priya S.</h3>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Booked a sleeper bus to Mumbai. Super smooth experience. Will use again.!"</p>
+            </div>
+
+            <div class="review-card">
+                <img src="./user1.png" alt="User 2">
+                <h3>Rahul M.</h3>
+                <div class="stars">⭐⭐⭐⭐</div>
+                <p>"App is easy to use and booking was instant. Loved the offers.!"</p>
+            </div>
+
+            <div class="review-card">
+                <img src="./user3.png" alt="User 3">
+                <h3>Meena K.</h3>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Isha trip la GoBus use panen. Very safe and clean buses. Highly recommend."</p>
+            </div>
+        </div>
+    </section>
+
+ 
+    <section class="app-download-section">
+        <div class="app-content">
+            <h2>Download the <span>GoBus App</span></h2>
+            <p>Book tickets faster, get exclusive offers & track your journey in real-time.</p>
+            <div class="store-buttons">
+                <a href="#"><img src="./Google_Play_Store_badge.png" alt="Play Store"></a>
+                <a href="#"><img src="./download-on-the-app-store.png" alt="App Store"></a>
+            </div>
+        </div>
+        <div class="app-image">
+            <img src="./Mobail_App.jpg" alt="Mobile App Preview">
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How <span>It Works</span></h2>
+            <div class="steps">
+                <div class="step-card">
+                    <i class="fa-solid fa-search"></i>
+                    <h3>Search Buses</h3>
+                    <p>Enter your origin, destination & travel date to find available buses.</p>
+                </div>
+                <div class="step-card">
+                    <i class="fa-solid fa-chair"></i>
+                    <h3>Select Seats</h3>
+                    <p>Choose your preferred seat from the bus layout in one click.</p>
+                </div>
+                <div class="step-card">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <h3>Make Payment</h3>
+                    <p>Pay securely using UPI, wallets, cards or net banking.</p>
+                </div>
+                <div class="step-card">
+                    <i class="fa-solid fa-ticket"></i>
+                    <h3>Get e-Ticket</h3>
+                    <p>Your ticket is instantly available — no printing needed!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <a href="index.html"><i class="fa-solid fa-bus-simple"></i> Go<span>Bus</span></a>
+                <p>Your trusted travel partner across 70+ cities in India.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#offers">Offers</a></li>
+                    <li><a href="#help">Support</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fa-solid fa-envelope"></i> support@gobus.in</p>
+                <p><i class="fa-solid fa-phone"></i> +91 75592 87062</p>
+                <div class="footer-socials">
+                    <a href="https://facebook.com"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://instagram.com"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://twitter.com"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://youtube.com"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://wa.me/+918767139064"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GoBus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("active");
+        }
+
+        function searchBus() {
+            const from = document.getElementById("fromCity").value;
+            const to = document.getElementById("toCity").value;
+            const date = document.getElementById("journeyDate").value;
+            alert(`Searching buses from ${from} to ${to} on ${date}`);
+        }
+
+      
+    </script>
+
+    <script>
+         function SearchBus(){
+        window.location.href = "buslist.html";
+       }
+
+    </script>
+
+   
+
+    <script src="./search.js"></script>
+</body>
+</html>

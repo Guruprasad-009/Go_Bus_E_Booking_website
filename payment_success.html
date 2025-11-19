@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Success - TrendBus</title>
+  <link rel="stylesheet" href="./payment_success.css" />
+</head>
+
+<body>
+  <div class="success-container">
+    <div class="top-bar">
+      <img src="./gobus logo.png" alt="TrendBus Logo" class="logo" />
+      <h2>🎉 Payment Successful!</h2>
+      <p>Your ticket has been confirmed. Have a safe journey!</p>
+    </div>
+
+    <div class="ticket-card">
+      <h3>🎫 E-Ticket Details</h3>
+      <p><strong>Ticket No:</strong> <span id="ticket">MM-<span id="randomTicket">----</span></span></p>
+      <p><strong>PNR No:</strong> <span id="pnr">PNR-<span id="randomPNR">----</span></span></p>
+      <p><strong>Name:</strong> <span id="name">--</span></p>
+      <p><strong>Email:</strong> <span id="email">--</span></p>
+      <p><strong>Phone:</strong> <span id="phone">--</span></p>
+      <!-- <p><strong>Route:</strong> <span id="route">--</span></p> -->
+      <p><strong>Seats:</strong> <span id="seats">--</span></p>
+      <p><strong>Total Fare:</strong> ₹<span id="fare">--</span></p>
+    </div>
+
+    <div class="buttons">
+      <button onclick="window.print()">🖨 Print Ticket</button>
+      <button onclick="downloadTicket()">⬇ Download Ticket</button>
+
+    </div>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("passengerName") || "N/A";
+    const email = localStorage.getItem("passengerEmail") || "N/A";
+    const phone = localStorage.getItem("passengerPhone") || "N/A";
+    const seats = JSON.parse(localStorage.getItem("selectedSeats")) || [];
+    const fare = localStorage.getItem("totalFare") || 0;
+    // const from = localStorage.getItem("from") || " kolhapur";
+    // const to = localStorage.getItem("to") || " pune ";
+
+    const ticketNo = Math.floor(100000 + Math.random() * 900000);
+    const pnrNo = Math.floor(1000 + Math.random() * 9000);
+
+    document.getElementById("randomTicket").textContent = ticketNo;
+    document.getElementById("randomPNR").textContent = pnrNo;
+    document.getElementById("name").textContent = name;
+    document.getElementById("email").textContent = email;
+    document.getElementById("phone").textContent = phone;
+    // document.getElementById("route").textContent = `${from} → ${to}`;
+    document.getElementById("seats").textContent = seats.join(", ");
+    document.getElementById("fare").textContent = fare;
+
+    function downloadTicket() {
+      const content = `
+--- GoBus Ticket ---
+Ticket No: MM-${ticketNo}
+PNR No: PNR-${pnrNo}
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+// Route: ${from} → ${to}
+Seats: ${seats.join(", ")}
+Fare: ₹${fare}
+-----------------------
+Thank you for choosing GoBus!
+`;
+      const blob = new Blob([content], { type: "text/plain" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "GoBus-Ticket.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    const fromCity = document.getElementById("fromInput").value;
+    const toCity = document.getElementById("toInput").value;
+
+    localStorage.setItem("from", fromCity);
+    localStorage.setItem("to", toCity);
+
+  </script>
+</body>
+</html>

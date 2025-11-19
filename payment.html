@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TrendBus - Payment</title>
+  <link rel="stylesheet" href="./payment.css" />
+</head>
+<body>
+  <div class="payment-container">
+    <div class="top-bar">
+      <img src="./gobus logo.png" alt="TrendBus Logo" class="logo" />
+      <h2>💳 Make Payment</h2>
+    </div>
+
+    <div class="fare-info">
+      <p><strong>Selected Seats:</strong> <span id="selectedSeats">--</span></p>
+      <p><strong>Total Fare:</strong> ₹<span id="totalFare">--</span></p>
+    </div>
+
+    <div class="payment-options">
+      <h3>Choose Payment Method</h3>
+
+      <label>
+        <input type="radio" name="paymentMethod" value="upi" checked />
+         UPI
+      </label>
+      <div class="payment-section upi">
+        <input type="text" id="upiId" placeholder="Enter your UPI ID (e.g., saurabh@upi)" />
+      </div>
+
+      <label>
+        <input type="radio" name="paymentMethod" value="card" />
+        💳 Credit / Debit Card
+      </label>
+      <div class="payment-section card" style="display: none;">
+        <input type="text" placeholder="Card Number" />
+        <input type="text" placeholder="MM/YY" />
+        <input type="text" placeholder="CVV" />
+      </div>
+
+      <button onclick="payNow()">✅ Pay Now</button>
+    </div>
+  </div>
+
+  <script>
+    const seats = JSON.parse(localStorage.getItem("selectedSeats")) || [];
+    const fare = localStorage.getItem("totalFare") || 0;
+
+    document.getElementById("selectedSeats").textContent = seats.join(", ");
+    document.getElementById("totalFare").textContent = fare;
+
+    const radioButtons = document.querySelectorAll('input[name="paymentMethod"]');
+    const upiSection = document.querySelector(".upi");
+    const cardSection = document.querySelector(".card");
+
+    radioButtons.forEach(radio => {
+      radio.addEventListener("change", () => {
+        if (radio.value === "upi") {
+          upiSection.style.display = "block";
+          cardSection.style.display = "none";
+        } else {
+          upiSection.style.display = "none";
+          cardSection.style.display = "block";
+        }
+      });
+    });
+
+    function payNow() {
+      const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+      if (selectedMethod === "upi") {
+        const upi = document.getElementById("upiId").value.trim();
+        if (!upi) {
+          alert("Please enter a valid UPI ID.");
+          return;
+        }
+      }
+
+      alert("Payment Successful!");
+      window.location.href = "payment_success.html"; 
+    }
+  </script>
+</body>
+</html>

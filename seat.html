@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Seat - TrendBus</title>
+  <link rel="stylesheet" href="./seat.css" />
+  <script src="https://kit.fontawesome.com/9aca14c5c9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="seat-container">
+    <div class="top-bar">
+      <img src="./gobus logo.png" alt="TrendBus Logo" class="logo" />
+      <div class="driver-box"> Driver</div>
+    </div>
+
+    <h2><i class="fa-solid fa-chair"></i> Select Your Seat</h2>
+
+    <div class="deck-card">
+      <div class="deck-title">Lower Deck</div>
+      <div class="lower-deck">
+        <div class="left-berth">
+          <div class="row"><div class="berth" data-seat="L1" onclick="toggleSeat(this)">L1</div></div>
+          <div class="row"><div class="berth" data-seat="L2" onclick="toggleSeat(this)">L2</div></div>
+          <div class="row"><div class="berth" data-seat="L3" onclick="toggleSeat(this)">L3</div></div>
+          <div class="row"><div class="berth" data-seat="L4" onclick="toggleSeat(this)">L4</div></div>
+          <div class="row"><div class="berth" data-seat="L5" onclick="toggleSeat(this)">L5</div></div>
+        </div>
+
+        <div class="right-seat">
+          <div class="row"><div class="seat" data-seat="R1" onclick="toggleSeat(this)">R1</div><div class="seat" data-seat="R2" onclick="toggleSeat(this)">R2</div></div>
+          <div class="row"><div class="seat" data-seat="R3" onclick="toggleSeat(this)">R3</div><div class="seat" data-seat="R4" onclick="toggleSeat(this)">R4</div></div>
+          <div class="row"><div class="seat" data-seat="R5" onclick="toggleSeat(this)">R5</div><div class="seat" data-seat="R6" onclick="toggleSeat(this)">R6</div></div>
+          <div class="row"><div class="seat" data-seat="R7" onclick="toggleSeat(this)">R7</div><div class="seat" data-seat="R8" onclick="toggleSeat(this)">R8</div></div>
+          <div class="row"><div class="seat" data-seat="R9" onclick="toggleSeat(this)">R9</div><div class="seat" data-seat="R10" onclick="toggleSeat(this)">R10</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="deck-card">
+      <div class="deck-title">Upper Deck</div>
+      <div class="upper-deck">
+        <div class="left-upper-berth">
+          <div class="row"><div class="berth" data-seat="U1" onclick="toggleSeat(this)">U1</div></div>
+          <div class="row"><div class="berth" data-seat="U2" onclick="toggleSeat(this)">U2</div></div>
+          <div class="row"><div class="berth" data-seat="U3" onclick="toggleSeat(this)">U3</div></div>
+          <div class="row"><div class="berth" data-seat="U4" onclick="toggleSeat(this)">U4</div></div>
+          <div class="row"><div class="berth" data-seat="U5" onclick="toggleSeat(this)">U5</div></div>
+        </div>
+
+        <div class="right-upper-berth">
+          <div class="row"><div class="berth" data-seat="U6" onclick="toggleSeat(this)">U6</div><div class="berth" data-seat="U7" onclick="toggleSeat(this)">U7</div></div>
+          <div class="row"><div class="berth" data-seat="U8" onclick="toggleSeat(this)">U8</div><div class="berth" data-seat="U9" onclick="toggleSeat(this)">U9</div></div>
+          <div class="row"><div class="berth" data-seat="U10" onclick="toggleSeat(this)">U10</div><div class="berth" data-seat="U11" onclick="toggleSeat(this)">U11</div></div>
+          <div class="row"><div class="berth" data-seat="U12" onclick="toggleSeat(this)">U12</div><div class="berth" data-seat="U13" onclick="toggleSeat(this)">U13</div></div>
+          <div class="row"><div class="berth" data-seat="U14" onclick="toggleSeat(this)">U14</div><div class="berth" data-seat="U15" onclick="toggleSeat(this)">U15</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="selected-info">
+      <p><strong>Selected Seats:</strong> <span id="selectedSeats"> </span></p>
+      <p><strong>Total Amount:</strong> ₹<span id="totalAmount">-</span></p>
+      <button onclick="confirmBooking()">Confirm Booking</button>
+
+    </div>
+  </div>
+
+ <script src="./seat.js"></script>
+
+</body>
+</html>

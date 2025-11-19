@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Available Buses - TrendBus</title>
+  <link rel="stylesheet" href="./buslist.css" />
+  <script src="https://kit.fontawesome.com/9aca14c5c9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="overlay">
+    <div class="buslist-container">
+      <div class="header">
+        <h2>Available Buses</h2>
+        <!-- <p id="route-subheading">Loading...</p> -->
+      </div>
+
+      <div class="content">
+ 
+        <div class="filter-box">
+          <h3>Filter buses</h3>
+          <div class="filter-option" data-filter="AC"><i class="fas fa-snowflake"></i> AC</div>
+          <div class="filter-option" data-filter="SLEEPER"><i class="fas fa-bed"></i> SLEEPER</div>
+          <div class="filter-option" data-filter="SINGLE"><i class="fas fa-chair"></i> Single Seats</div>
+          <div class="filter-option" data-filter="SEATER"><i class="fas fa-th-large"></i> SEATER</div>
+          <div class="filter-option" data-filter="NONAC"><i class="fas fa-wind"></i> NON-AC</div>
+          <div class="filter-option" data-filter="EVENING"><i class="fas fa-clock"></i> 18:00-24:00</div>
+          <div class="filter-option" data-filter="HIGH_RATED"><i class="fas fa-star"></i> High Rated</div>
+          <div class="filter-option" data-filter="TRACKING"><i class="fas fa-map-marker-alt"></i> Live Tracking</div>
+        </div>
+        <div class="buslist" id="busCardsContainer"></div>
+      </div>
+    </div>
+  </div>
+<script src="./buslist.js"></script>
+</body>
+</html>

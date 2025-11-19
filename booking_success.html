@@ -1,0 +1,65 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Confirmation - TrendBus</title>
+  <link rel="stylesheet" href="./booking.css" />
+</head>
+
+<body>
+
+  <div class="confirmation-container" id="ticket">
+    <div class="top-bar">
+      <img src="./gobus logo.png" alt="GoBus Logo" class="logo" />
+      <h2>🎉 Booking Confirmed</h2>
+    </div>
+
+    <div class="ticket-form">
+      <label>Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
+
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+
+      <label>Phone</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required />
+    </div>
+
+    <div class="ticket-card">
+      <h3>🚌 Trip Summary</h3>
+      <p>Seats: <span id="seats">--</span></p>
+      <p>Total Fare: <span id="amount">--</span></p>
+    </div>
+<br>
+   <center> <button class ="confirm-btn" onclick="proceedToPayment()">➡ Proceed to Payment</button></center>
+  </div>
+
+  <script>
+   
+    const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats")) || L1;
+    const farePerSeat = parseFloat(localStorage.getItem("farePerSeat")) || 450;
+
+    document.getElementById("seats").textContent = selectedSeats.join(",");
+    document.getElementById("amount").textContent = selectedSeats.length * farePerSeat;
+
+    function proceedToPayment() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+
+      localStorage.setItem("passengerName", name);
+      localStorage.setItem("passengerEmail", email);
+      localStorage.setItem("passengerPhone", phone);
+
+      window.location.href = "payment.html";
+    }
+  </script>
+<script>
+  document.getElementById("seats").textContent = selectedSeats.join(", ");
+  document.getElementById("amount").textContent = selectedSeats.length * farePerSeat;
+</script>
+
+</body>
+</html>

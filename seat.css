@@ -1,0 +1,168 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+.seat-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 140px;
+}
+
+.driver-box {
+  font-size: 18px;
+  background: #ddd;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.deck-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.deck-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.seat, .berth {
+  width: 50px;
+  height: 50px;
+  background: #cce5ff;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.seat:hover::after, .berth:hover::after {
+  content: attr(data-seat);
+  position: absolute;
+  bottom: -25px;
+  background: #222;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.seat.selected, .berth.selected {
+  background: #28a745;
+  color: white;
+  transform: scale(1.05);
+}
+
+.seat.booked, .berth.booked {
+  background: #999;
+  color: white;
+  cursor: not-allowed;
+}
+
+.lower-deck, .upper-deck {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.left-berth, .right-seat,
+.left-upper-berth, .right-upper-berth {
+  width: 48%;
+}
+
+.lower-deck {
+  background: #e0f7fa;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.upper-deck {
+  background: #fce4ec;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.selected-info {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+  .lower-deck, .upper-deck {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .left-berth {
+    order: 2;
+    width: 50%;
+  }
+
+  .right-seat {
+    order: 1;
+    width: 50%;
+  }
+
+  .left-upper-berth {
+    order: 2;
+    width: 50%;
+  }
+
+  .right-upper-berth {
+    order: 1;
+    width: 50%;
+  }
+
+  .seat, .berth {
+    width: 45px;
+    height: 45px;
+  }
+
+  .seat:hover::after, .berth:hover::after {
+    bottom: auto;
+    top: 55px;
+  }
+}

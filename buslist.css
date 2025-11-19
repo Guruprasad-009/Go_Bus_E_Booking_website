@@ -1,0 +1,132 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url(./home\ section\ image\ 2.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.buslist-container {
+  max-width: 1200px;
+  margin: auto;
+  color: white;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.filter-box {
+  flex: 1;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 260px;
+  color: #333;
+}
+
+.filter-box h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-option:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+.filter-option i {
+  width: 20px;
+  text-align: center;
+  color: #444;
+}
+
+.buslist {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bus-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff22;
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  color: white;
+  transition: 0.3s;
+}
+
+.bus-card:hover {
+  background: #ffffff33;
+}
+
+.bus-info h3 {
+  margin: 0 0 5px;
+}
+
+.bus-actions {
+  text-align: right;
+}
+
+.bus-actions button {
+  padding: 8px 15px;
+  border: none;
+  background: #ff5e5e;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bus-actions button:hover {
+  background: #ff2e2e;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+  .bus-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bus-actions {
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+  }
+}

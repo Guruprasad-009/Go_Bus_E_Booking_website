@@ -1,0 +1,215 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ffefeb, #ffe3df);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.login-box {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto;
+}
+
+.login-box h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.login-box h2 span {
+  color: #e74c3c;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.input-group i {
+  margin-right: 5px;
+  color: #e74c3c;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  border-color: #e74c3c;
+}
+
+
+.password-group {
+  position: relative;
+}
+
+.password-group i#togglePassword {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #999;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; 
+  box-sizing: border-box;
+}
+
+#togglePassword {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #999;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background: #e74c3c;
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: #d63b2d;
+}
+.signup-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup-link a {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 480px) {
+  .login-box {
+    padding: 30px 20px;
+  }
+}
+
+
+.google-login {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.google-login button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #444;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.google-login button:hover {
+  background-color: #f1f1f1;
+}
+
+.google-login i.fa-google {
+  color: #db4437;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .login-box {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .login-box h2 {
+    font-size: 22px;
+  }
+
+  .input-group input {
+    padding: 10px 35px 10px 12px;
+    font-size: 14px;
+  }
+
+  .input-group i.fa-eye,
+  .input-group i.fa-eye-slash {
+    right: 12px;
+    font-size: 16px;
+  }
+
+
+  .google-login button {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .login-box h2 {
+    font-size: 20px;
+  }
+
+  .input-group input {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .google-login button {
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+  }
+}
